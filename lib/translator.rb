@@ -1,4 +1,7 @@
+require 'pry'
+
 class Translator
+
 
   def initialize
     @dictionary = {"a" => ".-",
@@ -39,19 +42,31 @@ class Translator
                     "0" => "-----",
                     " " => " "}
   end
-  
+
   def eng_to_morse(text_to_translate)
-    @dictionary[text_to_translate]
+    morse_code_translated_array = []
+    english_text_array = []
+    english_text_array = text_to_translate.split('')
+    english_text_array.each do |letter|
+      morse_code_translated_array << @dictionary[letter]
+    end
+    morse_code_translated_array.join
   end
 end
 
 
-  ### Iteration 0
-  # Translate English to Morse Code
-  # * lowercase letters
-  #
-  # ```ruby
-  #   $ translator = Translate.new
-  #   => #<Translate:0x007fa1ab98cac0>
-  #   $ translator.eng_to_morse("hello world")
-  #   => "......-...-..--- .-----.-..-..-.."
+
+
+
+    ### Iteration 1
+    # Translate English to Morse Code
+    # * case insensitive, with numbers
+    #
+    # ```ruby
+    #   $ translator = Translate.new
+    #   => #<Translate:0x007fa1ab98cac0>
+    #   $ translator.eng_to_morse("Hello World")
+    #   => "......-...-..--- .-----.-..-..-.."
+    #   $ translator.eng_to_morse("There are 3 ships")
+    #   => "-......-.. .-.-.. ...-- ..........--...."
+    # ```
