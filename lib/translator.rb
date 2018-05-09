@@ -63,4 +63,24 @@ class Translator
     end
     morse_code_translated_array.join
   end
+
+  def morse_to_eng(morse_code)
+    morse_code_array = []
+    english_text_array = []
+    morse_code_array = morse_code.split(" ")
+    morse_code_array.each do |morse_code|
+      english_text_array << @dictionary.key(morse_code)
+    end
+    english_text_array.join('')
+  end
 end
+
+### Iteration 3
+# Translate Morse Code to English
+#
+# ```ruby
+#   $ translator = Translate.new
+#   => #<Translate:0x007fa1ab98cac0>
+#   $ translator.morse_to_eng(".... . .-.. .-.. ---  .-- --- .-. .-.. -..")
+#   => "hello world"
+# ```
