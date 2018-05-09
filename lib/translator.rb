@@ -53,22 +53,38 @@ class Translator
     morse_code_translated_array.join
   end
 
-
+  def from_file(file_input)
+    file_input_array = []
+    File.open("./lib/#{file_input}", "r") do |f|
+      f.each_line do |line|
+        file_input_array << line.split('')
+      end
+    end
 end
 
 
 
+File.open("./lib/input.txt", "r") do |f|
+  f.each_line do |line|
+    puts line
+  end
+end
 
-
-    ### Iteration 1
-    # Translate English to Morse Code
-    # * case insensitive, with numbers
-    #
-    # ```ruby
-    #   $ translator = Translate.new
-    #   => #<Translate:0x007fa1ab98cac0>
-    #   $ translator.eng_to_morse("Hello World")
-    #   => "......-...-..--- .-----.-..-..-.."
-    #   $ translator.eng_to_morse("There are 3 ships")
-    #   => "-......-.. .-.-.. ...-- ..........--...."
-    # ```
+# file = File.open("input.txt", "r")
+# contents = file.read
+# puts contents
+### Iteration 2
+# Translate English to Morse Code
+# * from a file
+#
+# ```
+# # in input.txt
+# I am in a file
+# ```
+#
+# ```ruby
+#   $ translator = Translate.new
+#   => #<Translate:0x007fa1ab98cac0>
+#   $translator.from_file("input.txt")
+#   => ".. .--- ..-. .- ..-....-..."
+# ```
