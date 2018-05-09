@@ -46,12 +46,14 @@ class Translator
   def eng_to_morse(text_to_translate)
     morse_code_translated_array = []
     english_text_array = []
-    english_text_array = text_to_translate.split('')
+    english_text_array = text_to_translate.downcase.split('')
     english_text_array.each do |letter|
       morse_code_translated_array << @dictionary[letter]
     end
     morse_code_translated_array.join
   end
+
+
 end
 
 
