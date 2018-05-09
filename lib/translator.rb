@@ -39,4 +39,19 @@ class Translator
                     "0" => "-----",
                     " " => " "}
   end
+  
+  def eng_to_morse(text_to_translate)
+    @dictionary[text_to_translate]
+  end
 end
+
+
+  ### Iteration 0
+  # Translate English to Morse Code
+  # * lowercase letters
+  #
+  # ```ruby
+  #   $ translator = Translate.new
+  #   => #<Translate:0x007fa1ab98cac0>
+  #   $ translator.eng_to_morse("hello world")
+  #   => "......-...-..--- .-----.-..-..-.."
