@@ -1,8 +1,6 @@
 require 'pry'
 
 class Translator
-
-
   def initialize
     @dictionary = {"a" => ".-",
                     "b" => "-...",
@@ -41,7 +39,8 @@ class Translator
                     "9" => "----.",
                     "0" => "-----",
                     " " => " ",
-                  "?" => "  "}
+                    "?" => "  ",
+                  }
   end
 
   def eng_to_morse(text_to_translate)
@@ -66,10 +65,9 @@ class Translator
   end
 
   def morse_to_eng(morse_code)
-    binding.pry
     morse_code_array = []
     english_text_array = []
-    morse_code_array = morse_code.split(" ")
+    morse_code_array = morse_code.downcase.split(" ")
     morse_code_array.each do |morse_code|
       english_text_array << @dictionary.key(morse_code)
     end
