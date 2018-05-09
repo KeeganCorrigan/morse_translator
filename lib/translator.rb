@@ -54,37 +54,13 @@ class Translator
   end
 
   def from_file(file_input)
-    file_input_array = []
-    File.open("./lib/#{file_input}", "r") do |f|
-      f.each_line do |line|
-        file_input_array << line.split('')
-      end
+    morse_code_translated_array = []
+    file_text_array = []
+    file_text = File.read("./lib/#{file_input}")
+    file_text_array = file_text.downcase.split('')
+    file_text_array.each do |letter|
+      morse_code_translated_array << @dictionary[letter]
     end
-end
-
-
-
-File.open("./lib/input.txt", "r") do |f|
-  f.each_line do |line|
-    puts line
+    morse_code_translated_array.join
   end
 end
-
-# file = File.open("input.txt", "r")
-# contents = file.read
-# puts contents
-### Iteration 2
-# Translate English to Morse Code
-# * from a file
-#
-# ```
-# # in input.txt
-# I am in a file
-# ```
-#
-# ```ruby
-#   $ translator = Translate.new
-#   => #<Translate:0x007fa1ab98cac0>
-#   $translator.from_file("input.txt")
-#   => ".. .--- ..-. .- ..-....-..."
-# ```
